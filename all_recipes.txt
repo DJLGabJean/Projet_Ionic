@@ -1,0 +1,15 @@
+    {
+        id: 1,
+        name: "Planche",
+        ingredients: "Bois",
+        variants: ["Chêne", "Sapin", "Bouleau", "Acajou", "Acacia", "Chêne noir", "Palétuvier", "Cerisier"],
+        positions: [[0], [1], [2], [3], [4], [5], [6], [7], [8]]
+    },
+    {
+        id: 2,
+        name: "Bâton",
+        ingredients: "Planche",
+        variants: ["Chêne", "Sapin", "Bouleau", "Acajou", "Acacia", "Chêne noir", "Palétuvier", "Cerisier"],
+        positions: [[0,3], [1,4], [2,5], [3,6], [4,7], [5,8]]
+    }
+];
