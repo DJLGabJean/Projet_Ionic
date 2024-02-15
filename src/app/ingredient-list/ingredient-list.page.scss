@@ -1,4 +1,19 @@
+@media screen and (min-width: 720px) and (min-height: 1600px) {
+    ion-col {
+        --ion-col-width: calc(25% - 8px); /* 25% pour une grille de 4 colonnes */
+        margin: 4px; /* Espacement entre les colonnes */
+    }
+    img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
 img {
     width: 100px;
     height: 100px;
+}
+
+p {
+    text-align: justify;
 }
