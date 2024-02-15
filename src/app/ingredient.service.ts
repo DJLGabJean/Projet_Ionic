@@ -27,7 +27,7 @@ export class IngredientService {
     );
   }
 
-  saveNewFilm(ingredient: Ingredient) : any {
+  saveNewIngredient(ingredient: Ingredient) : any {
     return new Observable(obs => {
       this.ingredientsRef.add({...ingredient}).then(() => {
         obs.next();

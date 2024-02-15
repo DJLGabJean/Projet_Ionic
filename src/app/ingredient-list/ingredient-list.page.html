@@ -1,23 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Ma bibliothèque</ion-title>
+    <ion-title>Liste des ingrédients</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <h2>Création d'un nouveau ingredient</h2>
-  <ion-button routerLink="/ingredient/new">Création</ion-button>
-  <h2>Liste des films</h2>
+  <ion-button routerLink="/ingredient/new">Création d'un nouveau ingredient</ion-button>
   <ion-grid>
     <ion-row>
-      <ion-col size="4" *ngFor="let ingredient of ingredients">
-        <ion-list [routerLink]="['/ingredient/', ingredient.id]" >
-          <ion-item>
-            <img [src]="ingredient.img" [alt]="ingredient.title">
-          </ion-item>
-          <ion-item>{{ ingredient.title }}</ion-item>
-          <ion-item>{{ ingredient.param1 }}</ion-item>
-          <ion-item>{{ ingredient.param2 }}</ion-item>
-        </ion-list>
+      <ion-col size="3" *ngFor="let ingredient of ingredients">
+        <ion-card [routerLink]="['/ingredient', ingredient.id]">
+          <ion-card-title>{{ingredient.name}}</ion-card-title>
+          <img [src]="ingredient.picturelink" [alt]="ingredient.name">
+        </ion-card>
       </ion-col>
     </ion-row>
 </ion-grid>

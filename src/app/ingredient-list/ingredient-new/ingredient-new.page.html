@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/ingredient"></ion-back-button>
@@ -8,9 +8,48 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Nouveau Ingrédient</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item>
+    <ion-input type="text" label="Url de l'image" [(ngModel)]="ingredient.picturelink"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" label="Nom de l'ingrédient" [(ngModel)]="ingredient.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" label="Type" [(ngModel)]="ingredient.type"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" label="Outil Approprié" [(ngModel)]="ingredient.tool"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" label="Résitance aux explosions" [(ngModel)]="ingredient.blastresistant"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" label="Dureté" [(ngModel)]="ingredient.hardness"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Inflammable</ion-label>
+    <ion-toggle [(ngModel)]="ingredient.flammable"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Transparent</ion-label>
+    <ion-toggle [(ngModel)]="ingredient.transparent"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Lumineux</ion-label>
+    <ion-toggle [(ngModel)]="ingredient.luminous"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Renouvelable</ion-label>
+    <ion-toggle [(ngModel)]="ingredient.renewable"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" label="Experience" [(ngModel)]="ingredient.experience"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" label="Variants" [(ngModel)]="ingredient.variants"></ion-input>
+  </ion-item>
+  <p class="text-center">
+    <ion-button (click)="add()">Envoyer</ion-button>
+  </p>
 </ion-content>
+

@@ -1,28 +1,30 @@
 export class Ingredient {
     id?: string;
-    country: string;
-    music: string;
-    onAir: boolean;
-    pictureLink: string;
-    productor: string;
-    realisator: string;
-    releaseDate: string;
-    scenario: string;
-    synopsis: string;
-    time: string;
-    title: string;
+    name: string;
+    tool: string;
+    type: string;
+    blastresistant: number;
+    hardness: number;
+    flammable: boolean;
+    transparent: boolean;
+    luminous: boolean;
+    renewable: boolean;
+    experience: number;
+    picturelink: string;
+    variants: Array<string>;
 
     constructor() {
-        this.country = '';
-        this.music = '';
-        this.onAir = false;
-        this.pictureLink = '';
-        this.productor = '';
-        this.realisator = '';
-        this.releaseDate = '';
-        this.scenario = '';
-        this.synopsis = '';
-        this.time = '';
-        this.title = '';
+        this.name = '';
+        this.tool = '';
+        this.type = '';
+        this.blastresistant = 0;
+        this.hardness = 0;
+        this.flammable = false;
+        this.transparent = false;
+        this.luminous = false;
+        this.renewable = false;
+        this.experience = 0;
+        this.picturelink = '';
+        this.variants = [];
     }
 }
