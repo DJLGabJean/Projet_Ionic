@@ -12,7 +12,7 @@ import { Ingredient } from 'src/app/models/ingredient.model';
 })
 export class IngredientNewPage implements OnInit {
   public ingredient!: Ingredient;
-  public selectedIngredient!: string;
+  public newVariant: string = '';
 
   constructor(
     private Ingredient: IngredientService,
@@ -41,5 +41,16 @@ export class IngredientNewPage implements OnInit {
       this.ingredient = new Ingredient();
       this.presentToast();
     });
+  }
+
+  removeVariant(variant: string) {
+    this.ingredient.variants = this.ingredient.variants.filter(item => item !== variant);
+  }
+
+  addVariant() {
+    if (this.newVariant && !this.ingredient.variants.includes(this.newVariant)) {
+      this.ingredient.variants.push(this.newVariant);
+      this.newVariant = '';
+    }
   }
 }

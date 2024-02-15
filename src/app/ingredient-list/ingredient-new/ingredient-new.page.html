@@ -45,9 +45,22 @@
   <ion-item>
     <ion-input type="number" label="Experience" [(ngModel)]="ingredient.experience"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-input type="text" label="Variants" [(ngModel)]="ingredient.variants"></ion-input>
-  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label>Variants</ion-label>
+      <ion-item *ngFor="let variant of ingredient.variants">
+        <ion-label>{{ variant }}</ion-label>
+        <ion-button fill="clear" slot="end" (click)="removeVariant(variant)">
+          <ion-icon name="remove-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Ajouter un variant</ion-label>
+      <ion-input type="text" [(ngModel)]="newVariant"></ion-input>
+      <ion-button expand="block" (click)="addVariant()">Ajouter</ion-button>
+    </ion-item>
+  </ion-list>
   <p class="text-center">
     <ion-button (click)="add()">Envoyer</ion-button>
   </p>

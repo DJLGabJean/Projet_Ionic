@@ -1,3 +1,13 @@
+@media screen and (min-width: 720px) and (min-height: 1600px) {
+    ion-item {
+      --min-height: 48px;
+    }
+  
+    ion-button {
+      --min-height: 32px; 
+    }
+}
+
 img {
     width: 100px;
     height: 100px;

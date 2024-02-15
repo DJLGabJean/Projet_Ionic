@@ -12,7 +12,7 @@
     <ion-grid *ngIf="ingredient">
       <ion-row>
         <ion-col>
-          <ion-button (click)="onDelete(ingredient.id)">
+          <ion-button color="danger" (click)="onDelete(ingredient.id)">
             <ion-icon name="trash"></ion-icon>
           </ion-button>
         </ion-col>
@@ -91,32 +91,32 @@
     </ion-item>
     <ion-item>
       <ion-label>Inflammable</ion-label>
-      <ion-toggle [(ngModel)]="ingredient.flammable"></ion-toggle>
+      <ion-toggle color="success" [(ngModel)]="ingredient.flammable"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label>Transparent</ion-label>
-      <ion-toggle [(ngModel)]="ingredient.transparent"></ion-toggle>
+      <ion-toggle color="success" [(ngModel)]="ingredient.transparent"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label>Lumineux</ion-label>
-      <ion-toggle [(ngModel)]="ingredient.luminous"></ion-toggle>
+      <ion-toggle color="success" [(ngModel)]="ingredient.luminous"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label>Renouvelable</ion-label>
-      <ion-toggle [(ngModel)]="ingredient.renewable"></ion-toggle>
+      <ion-toggle color="success" [(ngModel)]="ingredient.renewable"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-input type="number" label="Experience" [(ngModel)]="ingredient.experience"></ion-input>
     </ion-item> 
     <ion-list>
-      <ion-item>
-        <ion-label>Variants</ion-label>
-        <ion-item *ngFor="let variant of ingredient.variants">
+      <ion-list-header>
+        <ion-label>Variants :</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let variant of ingredient.variants">
           <ion-label>{{ variant }}</ion-label>
-          <ion-button fill="clear" slot="end" (click)="removeVariant(variant)">
+          <ion-button fill="clear" slot="end" color="danger" (click)="removeVariant(variant)">
             <ion-icon name="remove-circle-outline"></ion-icon>
           </ion-button>
-        </ion-item>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Ajouter un variant</ion-label>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { IngredientService } from 'src/app/ingredient.service';
@@ -14,6 +14,7 @@ export class IngredientPage implements OnInit {
   ingredient!: Ingredient;
   newVariant: string = '';
   allExperience: string = '';
+  screenSize: string = '';
 
   constructor(
     private alertCtrl : AlertController,
@@ -105,6 +106,10 @@ export class IngredientPage implements OnInit {
   getYesNoValue(value: boolean): string {
     return value ? 'Oui' : 'Non';
   }
-  
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.screenSize = window.innerWidth < 768 ? 'small-screen' : 'large-screen';
+  }
 }
 
