@@ -8,49 +8,53 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item>
+  <ion-item *ngIf="isFieldAuthorized('picturelink')">
     <ion-input type="text" label="Url de l'image" [(ngModel)]="ingredient.picturelink"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="isFieldAuthorized('nom')">
     <ion-input type="text" label="Nom de l'ingrédient" [(ngModel)]="ingredient.name"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-input type="text" label="Type" [(ngModel)]="ingredient.type"></ion-input>
+  <ion-item *ngIf="isFieldAuthorized('type')">
+    <ion-label>Type de l'ingrédient</ion-label>
+    <ion-select placeholder="Sélectionner un type" [(ngModel)]="ingredient.type">  
+      <ion-select-option value="Bloc">Bloc</ion-select-option>  
+      <ion-select-option value="Matière première">Matière première</ion-select-option>  
+    </ion-select>  
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="isFieldAuthorized('tool')">
     <ion-input type="text" label="Outil Approprié" [(ngModel)]="ingredient.tool"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="isFieldAuthorized('hardness')">
     <ion-input type="number" label="Résitance aux explosions" [(ngModel)]="ingredient.blastresistant"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="isFieldAuthorized('hardness')">
     <ion-input type="number" label="Dureté" [(ngModel)]="ingredient.hardness"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="isFieldAuthorized('flammable')">
     <ion-label>Inflammable</ion-label>
-    <ion-toggle [(ngModel)]="ingredient.flammable"></ion-toggle>
+    <ion-toggle color="success" [(ngModel)]="ingredient.flammable"></ion-toggle>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="isFieldAuthorized('transparent')">
     <ion-label>Transparent</ion-label>
-    <ion-toggle [(ngModel)]="ingredient.transparent"></ion-toggle>
+    <ion-toggle color="success" [(ngModel)]="ingredient.transparent"></ion-toggle>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="isFieldAuthorized('luminous')">
     <ion-label>Lumineux</ion-label>
-    <ion-toggle [(ngModel)]="ingredient.luminous"></ion-toggle>
+    <ion-toggle color="success" [(ngModel)]="ingredient.luminous"></ion-toggle>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="isFieldAuthorized('renewable')">
     <ion-label>Renouvelable</ion-label>
-    <ion-toggle [(ngModel)]="ingredient.renewable"></ion-toggle>
+    <ion-toggle color="success" [(ngModel)]="ingredient.renewable"></ion-toggle>
   </ion-item>
-  <ion-item>
-    <ion-input type="number" label="Experience" [(ngModel)]="ingredient.experience"></ion-input>
+  <ion-item *ngIf="isFieldAuthorized('experience')">
+    <ion-input type="number" label="Expérience" [(ngModel)]="ingredient.experience"></ion-input>
   </ion-item>
-  <ion-list>
+  <ion-list *ngIf="isFieldAuthorized('variants')">
     <ion-item>
       <ion-label>Variants</ion-label>
       <ion-item *ngFor="let variant of ingredient.variants">
         <ion-label>{{ variant }}</ion-label>
-        <ion-button fill="clear" slot="end" (click)="removeVariant(variant)">
+        <ion-button fill="clear" slot="end" color="danger" (click)="removeVariant(variant)">
           <ion-icon name="remove-circle-outline"></ion-icon>
         </ion-button>
       </ion-item>

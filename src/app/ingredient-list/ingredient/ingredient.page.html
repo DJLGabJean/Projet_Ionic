@@ -20,49 +20,47 @@
       <ion-row>
           <img [src]="ingredient.picturelink" [alt]="ingredient.name">
         <ion-col>
-          <ion-item *ngIf="isFieldAuthorized('name')">
+          <ion-item *ngIf="hiddenField('name')">
             <ion-label>Nom de l'ingrédient</ion-label>
             <ion-text>{{ ingredient.name }}</ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('type')">
+          <ion-item *ngIf="hiddenField('type')">
             <ion-label>Type</ion-label>
             <ion-text>{{ ingredient.type }}</ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('tool')">
+          <ion-item *ngIf="hiddenField('tool')">
             <ion-label>Outil Approprié</ion-label>
             <ion-text>{{ ingredient.tool }}</ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('blastresistant')">
+          <ion-item *ngIf="hiddenField('blastresistant')">
             <ion-label>Résistance aux explosions</ion-label>
             <ion-text>{{ ingredient.blastresistant }}</ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('hardness')">
+          <ion-item *ngIf="hiddenField('hardness')">
             <ion-label>Dureté</ion-label>
             <ion-text>{{ ingredient.hardness }}</ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('flammable')">
+          <ion-item *ngIf="hiddenField('flammable')">
             <ion-label>Inflammable</ion-label>
             <ion-text>{{ getYesNoValue(ingredient.flammable) }}</ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('transparent')">
+          <ion-item *ngIf="hiddenField('transparent')">
             <ion-label>Transparence</ion-label>
             <ion-text>{{ getYesNoValue(ingredient.transparent) }}</ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('luminous')">
+          <ion-item *ngIf="hiddenField('luminous')">
             <ion-label>Lumineux</ion-label>
             <ion-text>{{ getYesNoValue(ingredient.luminous) }}</ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('renewable')">
+          <ion-item *ngIf="hiddenField('renewable')">
             <ion-label>Renouvelable</ion-label>
             <ion-text>{{ getYesNoValue(ingredient.renewable) }}</ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('experience')">
+          <ion-item *ngIf="hiddenField('experience')">
             <ion-label>Expérience</ion-label>
-            <ion-text *ngFor="let key of getExperienceKeys()">
-              {{ key }} : {{ ingredient.experience[key] }}
-            </ion-text>
+            <ion-text>{{ ingredient.experience }}</ion-text>
           </ion-item>
-          <ion-list *ngIf="isFieldAuthorized('variants')">
+          <ion-list *ngIf="hiddenField('variants')">
             <ion-list-header>
               <ion-label>Variants :</ion-label>
             </ion-list-header>
@@ -76,44 +74,48 @@
     </ion-grid>
   </div>
   <div *ngIf="modif">
-    <ion-item>
-      <ion-input type="text" label="URL de l'image" required="required" [(ngModel)]="ingredient.picturelink"></ion-input>
+    <ion-item *ngIf="isFieldAuthorized('picturelink')">
+      <ion-input type="text" label="URL de l'image" [(ngModel)]="ingredient.picturelink"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input type="text" label="Nom de l'ingrédient" required="required" [(ngModel)]="ingredient.name"></ion-input>
+    <ion-item *ngIf="isFieldAuthorized('name')">
+      <ion-input type="text" label="Nom de l'ingrédient" [(ngModel)]="ingredient.name"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input type="text" label="Type" required="required" [(ngModel)]="ingredient.type"></ion-input>
+    <ion-item *ngIf="isFieldAuthorized('type')">
+      <ion-label>Type de l'ingrédient</ion-label>
+      <ion-select placeholder="Sélectionner un type" [(ngModel)]="ingredient.type">  
+        <ion-select-option value="Bloc">Bloc</ion-select-option>  
+        <ion-select-option value="Matière première">Matière première</ion-select-option>  
+      </ion-select>  
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="isFieldAuthorized('tool')">
       <ion-input type="text" label="Outil Approprié" [(ngModel)]="ingredient.tool"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="isFieldAuthorized('blastresistant')">
       <ion-input type="number" label="Résitance aux explosions" [(ngModel)]="ingredient.blastresistant"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="isFieldAuthorized('hardness')">
       <ion-input type="number" label="Dureté" [(ngModel)]="ingredient.hardness"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="isFieldAuthorized('flammable')">
       <ion-label>Inflammable</ion-label>
       <ion-toggle color="success" [(ngModel)]="ingredient.flammable"></ion-toggle>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="isFieldAuthorized('transparent')">
       <ion-label>Transparent</ion-label>
       <ion-toggle color="success" [(ngModel)]="ingredient.transparent"></ion-toggle>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="isFieldAuthorized('luminous')">
       <ion-label>Lumineux</ion-label>
       <ion-toggle color="success" [(ngModel)]="ingredient.luminous"></ion-toggle>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="isFieldAuthorized('renewable')">
       <ion-label>Renouvelable</ion-label>
       <ion-toggle color="success" [(ngModel)]="ingredient.renewable"></ion-toggle>
     </ion-item>
-    <ion-item>
-      <ion-input type="number" label="Experience" [(ngModel)]="ingredient.experience"></ion-input>
-    </ion-item> 
-    <ion-list>
+    <ion-item *ngIf="isFieldAuthorized('experience')">
+      <ion-input type="number" label="Expérience" [(ngModel)]="ingredient.experience"></ion-input>
+    </ion-item>
+    <ion-list *ngIf="isFieldAuthorized('variants')">
       <ion-list-header>
         <ion-label>Variants :</ion-label>
       </ion-list-header>

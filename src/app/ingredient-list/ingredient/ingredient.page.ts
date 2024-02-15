@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { IngredientService } from 'src/app/ingredient.service';
@@ -13,15 +14,13 @@ export class IngredientPage implements OnInit {
   modif: boolean = false;
   ingredient!: Ingredient;
   newVariant: string = '';
-  allExperience: string = '';
-  screenSize: string = '';
 
   constructor(
     private alertCtrl : AlertController,
     private route: ActivatedRoute,
     private Ingredient: IngredientService,
     private toastCtrl: ToastController,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -61,10 +60,33 @@ export class IngredientPage implements OnInit {
   }
 
   onModif() {
-    this.Ingredient.update(this.ingredient).subscribe(() => {
-      this.presentToast();
-      this.modif = false;
-    });
+    let errorMessage = '';
+    if (this.ingredient.name.trim() === "") {
+      errorMessage += '- Le champ "Nom" est obligatoire.\n';
+    }
+    if (this.ingredient.picturelink.trim() === "") {
+      errorMessage += '- Le champ "Lien de l\'image" est obligatoire.\n';
+    }
+    if (this.ingredient.type === "") {
+      errorMessage += '- Le champ "Type" est obligatoire.\n';
+    }
+
+    if (this.ingredient.tool === "" && this.ingredient.type !== "Matière première") {
+      errorMessage += '- Le champ "Outil approprié" est obligatoire.\n';
+    }
+
+    if (errorMessage === "") {
+      this.Ingredient.update(this.ingredient).subscribe(() => {
+        this.presentToast();
+        this.modif = false;
+      });
+    } else {
+      const toast = this.toastCtrl.create({
+        message: errorMessage,
+        duration: 5000
+      });
+      toast.then(toast => toast.present());
+    }
   }
 
   onDelete(id: any) {
@@ -83,7 +105,7 @@ export class IngredientPage implements OnInit {
     }
   }
 
-  isFieldAuthorized(fieldName: string): boolean {
+  hiddenField(fieldName: string): boolean {
     switch (this.ingredient.type) {
       case 'Matière première':
         return ['picturelink', 'type', 'renewable', 'experience'].includes(fieldName);
@@ -95,21 +117,15 @@ export class IngredientPage implements OnInit {
     }
   }
 
-  getExperienceKeys(): string[] {
-    if (this.ingredient.experience) {
-      return Object.keys(this.ingredient.experience);
-    } else {
-      return [];
+  isFieldAuthorized(fieldName: string): boolean {
+    if (this.ingredient.type === 'Matière première') {
+      return fieldName ==='name' || fieldName === 'type' || fieldName === 'picturelink' || fieldName === 'experience' || fieldName === 'renewable';
     }
+    return true; // Autoriser tous les champs pour le type "Bloc"
   }
 
   getYesNoValue(value: boolean): string {
     return value ? 'Oui' : 'Non';
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    this.screenSize = window.innerWidth < 768 ? 'small-screen' : 'large-screen';
   }
 }
 
