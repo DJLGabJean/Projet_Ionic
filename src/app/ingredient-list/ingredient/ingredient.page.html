@@ -42,23 +42,25 @@
           </ion-item>
           <ion-item *ngIf="isFieldAuthorized('flammable')">
             <ion-label>Inflammable</ion-label>
-            <ion-text>{{ ingredient.flammable }}</ion-text>
+            <ion-text>{{ getYesNoValue(ingredient.flammable) }}</ion-text>
           </ion-item>
           <ion-item *ngIf="isFieldAuthorized('transparent')">
             <ion-label>Transparence</ion-label>
-            <ion-text>{{ ingredient.transparent }}</ion-text>
+            <ion-text>{{ getYesNoValue(ingredient.transparent) }}</ion-text>
           </ion-item>
           <ion-item *ngIf="isFieldAuthorized('luminous')">
             <ion-label>Lumineux</ion-label>
-            <ion-text>{{ ingredient.luminous }}</ion-text>
+            <ion-text>{{ getYesNoValue(ingredient.luminous) }}</ion-text>
           </ion-item>
           <ion-item *ngIf="isFieldAuthorized('renewable')">
             <ion-label>Renouvelable</ion-label>
-            <ion-text>{{ ingredient.renewable }}</ion-text>
+            <ion-text>{{ getYesNoValue(ingredient.renewable) }}</ion-text>
           </ion-item>
           <ion-item *ngIf="isFieldAuthorized('experience')">
             <ion-label>Expérience</ion-label>
-            <ion-text>{{ ingredient.experience }}</ion-text>
+            <ion-text *ngFor="let key of getExperienceKeys()">
+              {{ key }} : {{ ingredient.experience[key] }}
+            </ion-text>
           </ion-item>
           <ion-item *ngIf="isFieldAuthorized('variants')">
             <ion-label>Variants</ion-label>

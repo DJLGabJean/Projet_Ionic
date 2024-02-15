@@ -13,6 +13,7 @@ export class IngredientPage implements OnInit {
   modif: boolean = false;
   ingredient!: Ingredient;
   newVariant: string = '';
+  allExperience: string = '';
 
   constructor(
     private alertCtrl : AlertController,
@@ -92,5 +93,18 @@ export class IngredientPage implements OnInit {
         return false;
     }
   }
+
+  getExperienceKeys(): string[] {
+    if (this.ingredient.experience) {
+      return Object.keys(this.ingredient.experience);
+    } else {
+      return [];
+    }
+  }
+
+  getYesNoValue(value: boolean): string {
+    return value ? 'Oui' : 'Non';
+  }
+  
 }
 

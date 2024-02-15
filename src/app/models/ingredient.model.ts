@@ -9,7 +9,7 @@ export class Ingredient {
     transparent: boolean;
     luminous: boolean;
     renewable: boolean;
-    experience: number;
+    experience: { [key: string]: number };
     picturelink: string;
     variants: Array<string>;
 
@@ -23,7 +23,7 @@ export class Ingredient {
         this.transparent = false;
         this.luminous = false;
         this.renewable = false;
-        this.experience = 0;
+        this.experience = {};
         this.picturelink = '';
         this.variants = [];
     }
