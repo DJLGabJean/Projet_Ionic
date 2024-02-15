@@ -62,23 +62,28 @@
               {{ key }} : {{ ingredient.experience[key] }}
             </ion-text>
           </ion-item>
-          <ion-item *ngIf="isFieldAuthorized('variants')">
-            <ion-label>Variants</ion-label>
-            <ion-text>{{ ingredient.variants }}</ion-text>
-          </ion-item>
+          <ion-list *ngIf="isFieldAuthorized('variants')">
+            <ion-list-header>
+              <ion-label>Variants :</ion-label>
+            </ion-list-header>
+            <ion-item *ngFor="let variant of ingredient.variants">
+              <ion-icon name="caret-forward-outline"></ion-icon>
+              <ion-text>{{ variant }}</ion-text>
+            </ion-item>
+          </ion-list>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
   <div *ngIf="modif">
     <ion-item>
-      <ion-input type="text" label="URL de l'image" [(ngModel)]="ingredient.picturelink"></ion-input>
+      <ion-input type="text" label="URL de l'image" required="required" [(ngModel)]="ingredient.picturelink"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" label="Nom de l'ingrédient" [(ngModel)]="ingredient.name"></ion-input>
+      <ion-input type="text" label="Nom de l'ingrédient" required="required" [(ngModel)]="ingredient.name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" label="Type" [(ngModel)]="ingredient.type"></ion-input>
+      <ion-input type="text" label="Type" required="required" [(ngModel)]="ingredient.type"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input type="text" label="Outil Approprié" [(ngModel)]="ingredient.tool"></ion-input>
