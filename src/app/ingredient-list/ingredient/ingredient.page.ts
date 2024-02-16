@@ -108,7 +108,7 @@ export class IngredientPage implements OnInit {
   hiddenField(fieldName: string): boolean {
     switch (this.ingredient.type) {
       case 'Matière première':
-        return ['picturelink', 'type', 'renewable', 'experience'].includes(fieldName);
+        return ['name', 'picturelink', 'type', 'renewable', 'experience'].includes(fieldName);
       case 'Bloc':
         // Inclure tous les champs pour le type "Bloc"
         return true;
