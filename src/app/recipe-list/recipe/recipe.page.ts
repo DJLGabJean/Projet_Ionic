@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/recipe.service';
+import { Directory, Filesystem, FilesystemDirectory } from '@capacitor/filesystem';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-recipe',
@@ -10,6 +12,7 @@ import { RecipeService } from 'src/app/recipe.service';
   styleUrls: ['./recipe.page.scss'],
 })
 export class RecipePage implements OnInit {
+  @ViewChild('tableCraft', { read: ElementRef }) tableCraft!: ElementRef;
   modif: boolean = false;
   recipe!: Recipe;
   craftTablePositions: number[] = [];
@@ -104,6 +107,42 @@ export class RecipePage implements OnInit {
     }
   }
 
+
+  async saveIonRowsAsImages() {
+    const tableCraft = document.querySelector('.table_craft');
+    const recipeName = this.recipe.name;
+    if (tableCraft) {
+      const ionRows = tableCraft.querySelectorAll<HTMLIonRowElement>('ion-row');
+      const toastPhotos = await this.toastCtrl.create({
+        message: `Les photos des possibilités de recettes de ${recipeName} ont été ajoutées à votre galerie photo.`,
+        duration: 4000
+      });
+      
+  
+      for (let index = 0; index < ionRows.length; index++) {
+        const row = ionRows[index];
+        const canvas = await html2canvas(row);
+        const imageData = canvas.toDataURL('image/png');
+        const toastPhoto = await this.toastCtrl.create({
+          message: `Photo ${index} sauvegardée avec succès.`,
+          duration: 1000
+        });
+  
+        const fileName = `Recette_${recipeName}_${index}.png`; // Nommez chaque image de manière unique
+        try {
+          await Filesystem.writeFile({
+            path: `${fileName}`,
+            data: imageData,
+            directory: Directory.Documents
+          });
+          await toastPhoto.present();
+        } catch (error) {
+          console.error(`Erreur lors de la sauvegarde de l'image ${fileName}:`, error);
+        }
+      }
+      await toastPhotos.present();
+    }
+  }  
 }
   
   
