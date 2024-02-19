@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'ingredient-list',
     loadChildren: () => import('./ingredient-list/ingredient-list.module').then( m => m.IngredientListPageModule)
   },
+  {
+    path: 'recipe-list',
+    loadChildren: () => import('./recipe-list/recipe-list.module').then( m => m.RecipeListPageModule)
+  },
 ];
 
 

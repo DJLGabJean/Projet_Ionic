@@ -11,5 +11,13 @@
         ingredients: "Planche",
         variants: ["Chêne", "Sapin", "Bouleau", "Acajou", "Acacia", "Chêne noir", "Palétuvier", "Cerisier"],
         positions: [[0,3], [1,4], [2,5], [3,6], [4,7], [5,8]]
+
+positions :
+	possibility_0 : [0,3],
+	possibility_1 : [1,4],
+	possibility_2 : [2,5],
+	possibility_3 : [3,6],
+	possibility_4 : [4,7],
+	possibility_5 : [5,8],
     }
 ];

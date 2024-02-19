@@ -1,0 +1,35 @@
+p  {
+    text-align: justify;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+ion-list-header {
+    font-size: medium;
+}
+
+.table_craft {
+    ion-row {
+        position: relative;
+        background-color: #C6C6C6;
+        border: 2px solid;
+        border-color: #DBDBDB #5B5B5B #5B5B5B #DBDBDB;
+        padding: 6px;
+        white-space: nowrap;
+        vertical-align: bottom;
+    }
+
+    ion-col {
+        background: #8B8B8B no-repeat center center / 32px 32px;
+        border: 1px solid;
+        border-color: #373737 #FFF #FFF #373737;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+  

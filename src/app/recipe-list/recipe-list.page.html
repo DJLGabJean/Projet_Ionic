@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Liste des recettes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-button expand="block" routerLink="/recipe/new">Création d'une nouvelle recette</ion-button> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md="2" size-lg="6" *ngFor="let recipe of recipes">
+        <ion-card [routerLink]="['/recipe', recipe.id]">
+          <ion-card-title>{{recipe.name}}</ion-card-title>
+          <img [src]="recipe.picturelink" [alt]="recipe.name">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>
