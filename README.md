@@ -59,4 +59,4 @@ Puis on utilise Gradle :
 
 Enfin, on récupère l'APK de notre application et on la met sur notre Android pour l'installer :
 
-Le _chemin_ est `android/app/build/outputs/apk/app-debug.apk`
+Le _chemin_ de la création de l'APK sur le projet Ionic est `android/app/build/outputs/apk/app-debug.apk`
