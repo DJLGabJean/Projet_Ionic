@@ -57,6 +57,6 @@ Puis on utilise Gradle :
 > [!NOTE]
 > Cette commande permet d'assembler et générer un package de débogage pour une application Android
 
-Enfin, on récupère l'APK de notre application et on met sur notre Android pour l'installer :
+Enfin, on récupère l'APK de notre application et on la met sur notre Android pour l'installer :
 
 Le _chemin_ est `android/app/build/outputs/apk/app-debug.apk`
