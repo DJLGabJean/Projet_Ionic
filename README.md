@@ -1,17 +1,16 @@
 # README
 
-## MineEvolve
+## Minevolve
 
 Vous souhaitez apprendre des notions de Minecraft d'une façon plus rapide que sur les sites wiki ? Vous êtes bien sur la bonne application.
 MineEvolve vous permet d'apprendre les recettes de crafting de Minecraft de manière plus simple et condensé.
-
 
 ## Prérequis
 
 Le projet comporte le framework Ionic ainsi qu'une base de données Firebase
 
-https://ionicframework.com/
-https://firebase.google.com/
+- [https://ionicframework.com/]
+- [https://firebase.google.com/]
 
 
 Pour commencer, exécuter cette commande pour installer les dépendances du projet  :
@@ -31,6 +30,9 @@ ionic serve --open
 Pour quitter l'application, n'oubliez pas de maintenir les touches CTRL+C
 
 ## Lancement de l'application sur Android
+
+> [!CAUTION]
+> Une version APK est déjà disponible directement à la racine du projet
 
 Pour pouvoir lancer l'application sur votre Android, il vous faut créer une APK
 
@@ -60,3 +62,4 @@ Puis on utilise Gradle :
 Enfin, on récupère l'APK de notre application et on met sur notre Android pour l'installer :
 
 Le _chemin_ est `android/app/build/outputs/apk/app-debug.apk`
+
