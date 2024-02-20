@@ -19,9 +19,9 @@ Pour commencer, exécuter cette commande pour installer les dépendances du proj
 npm install
 ```
 
-## Lancement de l'application sur navigateur web
+## Lancement de l'application sur Navigateur Web
 
-Cette commande permet de lancer l'application sur votre navigateur web par défaut :
+Exécute cette commande pour lancer l'application sur votre Navigateur Web par défaut :
 
 ```bash
 ionic serve --open
@@ -59,7 +59,6 @@ Puis on utilise Gradle :
 > [!NOTE]
 > Cette commande permet d'assembler et générer un package de débogage pour une application Android
 
-Enfin, on récupère l'APK de notre application et on met sur notre Android pour l'installer :
+Enfin, on récupère l'APK de notre application et on la met sur notre Android pour l'installer :
 
-Le _chemin_ est `android/app/build/outputs/apk/app-debug.apk`
-
+Le _chemin_ de la création de l'APK sur le projet Ionic est `android/app/build/outputs/apk/app-debug.apk`
