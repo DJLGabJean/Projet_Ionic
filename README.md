@@ -3,7 +3,7 @@
 ## Minevolve
 
 Vous souhaitez apprendre des notions de Minecraft d'une façon plus rapide que sur les sites wiki ? Vous êtes bien sur la bonne application.
-MineEvolve vous permet d'apprendre les recettes de crafting de Minecraft de manière plus simple et condensé.
+Minevolve vous permet d'apprendre les recettes de crafting de Minecraft de manière plus simple et condensé.
 
 ## Prérequis
 
