@@ -20,9 +20,9 @@ Pour commencer, exécuter cette commande pour installer les dépendances du proj
 npm install
 ```
 
-## Lancement de l'application sur navigateur web
+## Lancement de l'application sur Navigateur Web
 
-Cette commande permet de lancer l'application sur votre navigateur web par défaut :
+Exécute cette commande pour lancer l'application sur votre Navigateur Web par défaut :
 
 ```bash
 ionic serve --open
