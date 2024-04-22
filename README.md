@@ -72,7 +72,13 @@ Le _chemin_ de la création de l'APK sur le projet Ionic est `android/app/build/
 - [ ] Ecran de chargement
 - [ ] Implémenter des tests unitaires
 - [ ] Ajouter le component sur la "redstone"
+    - [ ] Guides sur la redstone
+    - [ ] Créer des schémas de redstone
+    - [ ] Appel via une API qui existe pour récupérer des motifs persos comme des têtes par exemple
 - [ ] Ajouter le component sur les "enchantements"
+    - [ ] Détecter à quel niveau avoir un enchantement
+    - [ ] Simuler des combinaisons d'enchantements
+    - [ ] Avoir des renseignements sur les enchantements (effets, durée, etc)
 
 ## TO FIX
 
