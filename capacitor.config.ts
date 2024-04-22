@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'mon-projet-ionic',
+  appName: 'Minevolve',
   webDir: 'www',
   server: {
     androidScheme: 'https'

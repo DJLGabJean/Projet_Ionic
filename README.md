@@ -62,3 +62,26 @@ Puis on utilise Gradle :
 Enfin, on récupère l'APK de notre application et on la met sur notre Android pour l'installer :
 
 Le _chemin_ de la création de l'APK sur le projet Ionic est `android/app/build/outputs/apk/app-debug.apk`
+
+
+## TO DO
+
+- [ ] Dark mode/Light mode
+- [ ] Inscription/Désinscription
+- [ ] Connexion/Déconnexion
+- [ ] Ecran de chargement
+- [ ] Implémenter des tests unitaires
+- [ ] Ajouter le component sur la "redstone"
+- [ ] Ajouter le component sur les "enchantements"
+
+## TO FIX
+
+- [ ] Bug sur la première recette de chaque ingrédient
+- [ ] Adresse url non fonctionnel (marche seulement sur les dossiers du projet) pour l'ajout d'une photo lors de la création ou la modification d'un ingrédient
+
+
+## TO UPGRADE
+- [ ] Utilisation de la galerie photo ou d'une adresse url pour mettre une photo lors de la création ou la modification d'un ingrédient
+- [ ] Affichage de la photo de l'ingrédient au lieu du nom dans la case correspondant d'une recette
+
+
