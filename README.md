@@ -58,7 +58,7 @@ Puis on utilise Gradle :
 ```
 
 > [!IMPORTANT]
-> Vous devez posséder la version de JAVA 17 pour pouvoir exécuter cette commande.
+> Vous devez avoir la version de JAVA 17 dans les variables d'environnement (JAVA_HOME) pour pouvoir exécuter cette commande.
 
 > [!NOTE]
 > Cette commande permet d'assembler et générer un package de débogage pour une application Android
