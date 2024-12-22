@@ -83,7 +83,6 @@ Le _chemin_ de la création de l'APK sur le projet Ionic est `android/app/build/
 ## TO FIX
 
 - [ ] Bug sur la première recette de chaque ingrédient
-- [ ] Adresse url non fonctionnel (marche seulement sur les dossiers du projet) pour l'ajout d'une photo lors de la création ou la modification d'un ingrédient
 
 
 ## TO UPGRADE
