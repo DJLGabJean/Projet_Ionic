@@ -26,7 +26,7 @@ export class IngredientNewPage implements OnInit {
 
   async presentToast() {
     const toast = this.toastCtrl.create({
-      message: 'Nouveau ingrédient enregistré',
+      message: 'Nouvel ingrédient enregistré',
       duration: 2000
     });
     (await toast).present().then(() => {
