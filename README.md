@@ -56,6 +56,10 @@ Puis on utilise Gradle :
 ```bash
 ./gradlew assembleDebug
 ```
+
+> [!IMPORTANT]
+> Vous devez posséder la version de JAVA 17 pour pouvoir exécuter cette commande.
+
 > [!NOTE]
 > Cette commande permet d'assembler et générer un package de débogage pour une application Android
 
@@ -64,7 +68,7 @@ Enfin, on récupère l'APK de notre application et on la met sur notre Android p
 Le _chemin_ de la création de l'APK sur le projet Ionic est `android/app/build/outputs/apk/app-debug.apk`
 
 
-## TO DO
+## TO DO IN FUTURE
 
 - [ ] Dark mode/Light mode
 - [ ] Inscription/Désinscription
